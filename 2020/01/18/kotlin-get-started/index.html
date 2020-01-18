@@ -21,7 +21,7 @@
   var CONFIG = {
     hostname: new URL('http://yoursite.com').hostname,
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '7.7.0',
     exturl: false,
     sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
@@ -46,18 +46,18 @@
   };
 </script>
 
-  <meta name="description" content="Kotlin学习笔记 #变量 变量的声明与赋值我们回忆下 Java 里声明一个 View 类型的变量的写法：1View v; kotlin 里声明一个变量的格式是这样的：1var v: View 这里有几处不同：  有一个 var 关键字 类型和变量名位置互换了 中间是用冒号分隔的 结尾没有分号（对，Kotlin 里面不需要分号）  Kotlin 的空安全设计简单来说就是通过 IDE 的提示来避免">
+  <meta name="description" content="Kotlin学习笔记 #变量 变量的声明与赋值我们回忆下 Java 里声明一个 View 类型的变量的写法：1View v; kotlin 里声明一个变量的格式是这样的：1var v: View 这里有几处不同：  有一个 var 关键字 类型和变量名位置互换了 中间是用冒号分隔的 结尾没有分号（对，Kotlin 里面不需要分号）">
 <meta name="keywords" content="Kotlin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kotlin get started">
 <meta property="og:url" content="http://yoursite.com/2020/01/18/kotlin-get-started/index.html">
 <meta property="og:site_name" content="XUECCI">
-<meta property="og:description" content="Kotlin学习笔记 #变量 变量的声明与赋值我们回忆下 Java 里声明一个 View 类型的变量的写法：1View v; kotlin 里声明一个变量的格式是这样的：1var v: View 这里有几处不同：  有一个 var 关键字 类型和变量名位置互换了 中间是用冒号分隔的 结尾没有分号（对，Kotlin 里面不需要分号）  Kotlin 的空安全设计简单来说就是通过 IDE 的提示来避免">
+<meta property="og:description" content="Kotlin学习笔记 #变量 变量的声明与赋值我们回忆下 Java 里声明一个 View 类型的变量的写法：1View v; kotlin 里声明一个变量的格式是这样的：1var v: View 这里有几处不同：  有一个 var 关键字 类型和变量名位置互换了 中间是用冒号分隔的 结尾没有分号（对，Kotlin 里面不需要分号）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-18T13:45:56.006Z">
+<meta property="og:updated_time" content="2020-01-18T16:04:40.887Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kotlin get started">
-<meta name="twitter:description" content="Kotlin学习笔记 #变量 变量的声明与赋值我们回忆下 Java 里声明一个 View 类型的变量的写法：1View v; kotlin 里声明一个变量的格式是这样的：1var v: View 这里有几处不同：  有一个 var 关键字 类型和变量名位置互换了 中间是用冒号分隔的 结尾没有分号（对，Kotlin 里面不需要分号）  Kotlin 的空安全设计简单来说就是通过 IDE 的提示来避免">
+<meta name="twitter:description" content="Kotlin学习笔记 #变量 变量的声明与赋值我们回忆下 Java 里声明一个 View 类型的变量的写法：1View v; kotlin 里声明一个变量的格式是这样的：1var v: View 这里有几处不同：  有一个 var 关键字 类型和变量名位置互换了 中间是用冒号分隔的 结尾没有分号（对，Kotlin 里面不需要分号）">
 
 <link rel="canonical" href="http://yoursite.com/2020/01/18/kotlin-get-started/">
 
@@ -140,6 +140,16 @@
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
@@ -198,9 +208,26 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-01-18 01:13:47 / 修改时间：21:45:56" itemprop="dateCreated datePublished" datetime="2020-01-18T01:13:47+08:00">2020-01-18</time>
+              <time title="创建时间：2020-01-18 01:13:47" itemprop="dateCreated datePublished" datetime="2020-01-18T01:13:47+08:00">2020-01-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-19 00:04:40" itemprop="dateModified" datetime="2020-01-19T00:04:40+08:00">2020-01-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -244,9 +271,10 @@
 <li>有一个 var 关键字</li>
 <li>类型和变量名位置互换了</li>
 <li>中间是用冒号分隔的</li>
-<li>结尾没有分号（对，Kotlin 里面不需要分号）</li>
+<li>结尾没有分号（对，Kotlin 里面不需要分号）<a id="more"></a>
+<h2 id="Kotlin-的空安全设计"><a href="#Kotlin-的空安全设计" class="headerlink" title="Kotlin 的空安全设计"></a>Kotlin 的空安全设计</h2></li>
 </ul>
-<h2 id="Kotlin-的空安全设计"><a href="#Kotlin-的空安全设计" class="headerlink" title="Kotlin 的空安全设计"></a>Kotlin 的空安全设计</h2><p>简单来说就是通过 IDE 的提示来避免调用 null 对象，从而避免 NullPointerException。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var view: View = null</span><br><span class="line">// IDE 会提示错误，Null can not be a value of a non-null type View</span><br></pre></td></tr></table></figure></p>
+<p>简单来说就是通过 IDE 的提示来避免调用 null 对象，从而避免 NullPointerException。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var view: View = null</span><br><span class="line">// IDE 会提示错误，Null can not be a value of a non-null type View</span><br></pre></td></tr></table></figure></p>
 <p>使用？来表示可空，这种类型之后加 ? 的写法，在 Kotlin 里叫可空类型。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class User &#123;</span><br><span class="line">    var name: String? = null</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">view?.setBackgroundColor(Color.RED)  //使用？来避免NullPointerException，如果view为空即不会执行setBackgroundColor</span><br><span class="line">view!!.setBackgroundColor(Color.RED) //使用！！来做非空断言，即开发者确保view不为空，编译器不需要检查，如果出现空的情况，运行就会抛出异常</span><br></pre></td></tr></table></figure></p>
 <h2 id="延迟初始化"><a href="#延迟初始化" class="headerlink" title="延迟初始化"></a>延迟初始化</h2><p>在开始无法初始化的对象，Kotlin提供了延迟初始化关键字lateinit<br>这个 lateinit 的意思是：告诉编译器我没法第一时间就初始化，但我肯定会在使用它之前完成初始化的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lateinit var view: View</span><br><span class="line">override fun onCreate(...) &#123;</span><br><span class="line">    ...</span><br><span class="line">    view = findViewById(R.id.tvContent)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="类型推断"><a href="#类型推断" class="headerlink" title="类型推断"></a>类型推断</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var name: String = &quot;Mike&quot;</span><br><span class="line">var name = &quot;Mike&quot;</span><br></pre></td></tr></table></figure>
@@ -376,9 +404,17 @@
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">标签</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -480,7 +516,7 @@ setInterval("createtime()",250);
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
 
 

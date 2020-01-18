@@ -21,7 +21,7 @@
   var CONFIG = {
     hostname: new URL('http://yoursite.com').hostname,
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '7.7.0',
     exturl: false,
     sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
@@ -54,7 +54,7 @@
 <meta property="og:site_name" content="XUECCI">
 <meta property="og:description" content="Hexo常用命令12345678hexo init [folder]  //新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。hexo server         //启动服务器。默认情况下，访问网址为： http://localhost:4000/。hexo g              //生成html文件hexo clean          //清空生成文">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-18T13:52:43.048Z">
+<meta property="og:updated_time" content="2020-01-18T16:04:39.050Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo notes">
 <meta name="twitter:description" content="Hexo常用命令12345678hexo init [folder]  //新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。hexo server         //启动服务器。默认情况下，访问网址为： http://localhost:4000/。hexo g              //生成html文件hexo clean          //清空生成文">
@@ -140,6 +140,16 @@
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
@@ -198,9 +208,26 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-01-18 21:46:40 / 修改时间：21:52:43" itemprop="dateCreated datePublished" datetime="2020-01-18T21:46:40+08:00">2020-01-18</time>
+              <time title="创建时间：2020-01-18 21:46:40" itemprop="dateCreated datePublished" datetime="2020-01-18T21:46:40+08:00">2020-01-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-19 00:04:39" itemprop="dateModified" datetime="2020-01-19T00:04:39+08:00">2020-01-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -334,9 +361,17 @@
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">标签</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -438,7 +473,7 @@ setInterval("createtime()",250);
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
 
 

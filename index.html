@@ -21,7 +21,7 @@
   var CONFIG = {
     hostname: new URL('http://yoursite.com').hostname,
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '7.7.0',
     exturl: false,
     sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
@@ -135,6 +135,16 @@
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
@@ -194,9 +204,26 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-01-18 21:46:40 / 修改时间：21:52:43" itemprop="dateCreated datePublished" datetime="2020-01-18T21:46:40+08:00">2020-01-18</time>
+              <time title="创建时间：2020-01-18 21:46:40" itemprop="dateCreated datePublished" datetime="2020-01-18T21:46:40+08:00">2020-01-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-19 00:04:39" itemprop="dateModified" datetime="2020-01-19T00:04:39+08:00">2020-01-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
             </span>
 
           <br>
@@ -267,9 +294,26 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-01-18 01:13:47 / 修改时间：21:45:56" itemprop="dateCreated datePublished" datetime="2020-01-18T01:13:47+08:00">2020-01-18</time>
+              <time title="创建时间：2020-01-18 01:13:47" itemprop="dateCreated datePublished" datetime="2020-01-18T01:13:47+08:00">2020-01-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-19 00:04:40" itemprop="dateModified" datetime="2020-01-19T00:04:40+08:00">2020-01-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
             </span>
 
           <br>
@@ -306,37 +350,15 @@
 <li>有一个 var 关键字</li>
 <li>类型和变量名位置互换了</li>
 <li>中间是用冒号分隔的</li>
-<li>结尾没有分号（对，Kotlin 里面不需要分号）</li>
-</ul>
-<h2 id="Kotlin-的空安全设计"><a href="#Kotlin-的空安全设计" class="headerlink" title="Kotlin 的空安全设计"></a>Kotlin 的空安全设计</h2><p>简单来说就是通过 IDE 的提示来避免调用 null 对象，从而避免 NullPointerException。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var view: View = null</span><br><span class="line">// IDE 会提示错误，Null can not be a value of a non-null type View</span><br></pre></td></tr></table></figure></p>
-<p>使用？来表示可空，这种类型之后加 ? 的写法，在 Kotlin 里叫可空类型。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class User &#123;</span><br><span class="line">    var name: String? = null</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">view?.setBackgroundColor(Color.RED)  //使用？来避免NullPointerException，如果view为空即不会执行setBackgroundColor</span><br><span class="line">view!!.setBackgroundColor(Color.RED) //使用！！来做非空断言，即开发者确保view不为空，编译器不需要检查，如果出现空的情况，运行就会抛出异常</span><br></pre></td></tr></table></figure></p>
-<h2 id="延迟初始化"><a href="#延迟初始化" class="headerlink" title="延迟初始化"></a>延迟初始化</h2><p>在开始无法初始化的对象，Kotlin提供了延迟初始化关键字lateinit<br>这个 lateinit 的意思是：告诉编译器我没法第一时间就初始化，但我肯定会在使用它之前完成初始化的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lateinit var view: View</span><br><span class="line">override fun onCreate(...) &#123;</span><br><span class="line">    ...</span><br><span class="line">    view = findViewById(R.id.tvContent)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="类型推断"><a href="#类型推断" class="headerlink" title="类型推断"></a>类型推断</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var name: String = &quot;Mike&quot;</span><br><span class="line">var name = &quot;Mike&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="val-和-var"><a href="#val-和-var" class="headerlink" title="val 和 var"></a>val 和 var</h2><p>val 和 Java 中的 final 类似，称为只读变量。它只能赋值一次，不能修改。而 var 是一种可读可写变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val size = 18</span><br></pre></td></tr></table></figure></p>
-<h2 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h2><p>在 Kotlin 里变量默认是 public 的，其他与Java类似</p>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>Kotlin 除了变量声明外，函数的声明方式也和 Java 的方法不一样。Java 的方法（method）在 Kotlin 里叫函数（function），其实没啥区别，或者说其中的区别我们可以忽略掉。对任何编程语言来讲，变量就是用来存储数据，而函数就是用来处理数据。</p>
-<h2 id="函数的声明"><a href="#函数的声明" class="headerlink" title="函数的声明"></a>函数的声明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fun cook(name: String): Food &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>以 fun 关键字开头</li>
-<li>返回值写在了函数和参数后面，如果没有返回值，写作Unit，并且可以省略</li>
-</ul>
-<h2 id="可见性-1"><a href="#可见性-1" class="headerlink" title="可见性"></a>可见性</h2><p>函数如果不加可见性修饰符的话，默认的可见范围和变量一样也是 public 的</p>
-<h2 id="属性的-getter-setter-函数"><a href="#属性的-getter-setter-函数" class="headerlink" title="属性的 getter/setter 函数"></a>属性的 getter/setter 函数</h2><p>我们知道，在 Java 里面的 field 经常会带有 getter/setter 函数<br>在 Kotlin 里，这种 getter / setter 是怎么运作的呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class User &#123;</span><br><span class="line">    var name = &quot;Mike&quot;</span><br><span class="line">        get() &#123;</span><br><span class="line">            return field + &quot; nb&quot;</span><br><span class="line">        &#125;</span><br><span class="line">        set(value) &#123;</span><br><span class="line">            field = &quot;Cute &quot; + value</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h1><h2 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h2><p>在 Kotlin 中，所有东西都是对象，Kotlin 中使用的基本类型有：数字、字符、布尔值、数组与字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var number: Int = 1 // 👈还有 Double Float Long Short Byte 都类似</span><br><span class="line">var c: Char = &apos;c&apos;</span><br><span class="line">var b: Boolean = true</span><br><span class="line">var array: IntArray = intArrayOf(1, 2) // 👈类似的还有 FloatArray DoubleArray CharArray 等，intArrayOf 是 Kotlin 的 built-in 函数</span><br><span class="line">var str: String = &quot;string&quot;</span><br></pre></td></tr></table></figure></p>
-<p>这里有两个地方和 Java 不太一样：<br>Kotlin 里的 Int 和 Java 里的 int 以及 Integer 不同，主要是在装箱方面不同。<br>Java 里的 int 是 unbox 的，而 Integer 是 box 的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a = 1;</span><br><span class="line">Integer b = 2; // 👈会被自动装箱 autoboxing</span><br><span class="line">Kotlin 里，Int 是否装箱根据场合来定：</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a: Int = 1 // unbox</span><br><span class="line">var b: Int? = 2 // box</span><br><span class="line">var list: List&lt;Int&gt; = listOf(1, 2) // box</span><br></pre></td></tr></table></figure>
-<p>Kotlin 在语言层面简化了 Java 中的 int 和 Integer，但是我们对是否装箱的场景还是要有一个概念，因为这个牵涉到程序运行时的性能开销。<br>因此在日常的使用中，对于 Int 这样的基本类型，尽量用不可空变量。<br>Java 中的数组和 Kotlin 中的数组的写法也有区别：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] array = new int[] &#123;1, 2&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>而在 Kotlin 里，上面的写法是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var array: IntArray = intArrayOf(1, 2)</span><br><span class="line">// 👆这种也是 unbox 的</span><br></pre></td></tr></table></figure></p>
-<p>简单来说，原先在 Java 里的基本类型，类比到 Kotlin 里面，条件满足如下之一就不装箱：</p>
-<ul>
-<li>不可空类型。</li>
-<li>使用 IntArray、FloatArray 等。</li>
-</ul>
-<h2 id="类型的判断和强转"><a href="#类型的判断和强转" class="headerlink" title="类型的判断和强转"></a>类型的判断和强转</h2><p>Kotlin 里同样有类似解决方案，使用 is 关键字进行「类型判断」，并且因为编译器能够进行类型推断，可以帮助我们省略强转的写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fun main() &#123;</span><br><span class="line">    var activity: Activity = NewActivity()</span><br><span class="line">    if (activity is NewActivity) &#123;</span><br><span class="line">        // 👇的强转由于类型推断被省略了</span><br><span class="line">        activity.action()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>那么能不能不进行类型判断，直接进行强转调用呢？可以使用 as 关键字：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fun main() &#123;</span><br><span class="line">    var activity: Activity = NewActivity()</span><br><span class="line">    (activity as NewActivity).action()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这种写法如果强转类型操作是正确的当然没问题，但如果强转成一个错误的类型，程序就会抛出一个异常。<br>我们更希望能进行安全的强转，可以更优雅地处理强转出错的情况。<br>这一点，Kotlin 在设计上自然也考虑到了，我们可以使用 as? 来解决：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fun main() &#123;</span><br><span class="line">    var activity: Activity = NewActivity()</span><br><span class="line">    // 👇&apos;(activity as? NewActivity)&apos; 之后是一个可空类型的对象，所以，需要使用 &apos;?.&apos; 来调用</span><br><span class="line">    (activity as? NewActivity)?.action()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>它的意思就是说如果强转成功就执行之后的调用，如果强转不成功就不执行。</p>
-
+<li>结尾没有分号（对，Kotlin 里面不需要分号）</li></ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/01/18/kotlin-get-started/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -386,8 +408,19 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-18 21:45:53" itemprop="dateModified" datetime="2020-01-18T21:45:53+08:00">2020-01-18</time>
+                <time title="修改时间：2020-01-19 00:04:36" itemprop="dateModified" datetime="2020-01-19T00:04:36+08:00">2020-01-19</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+            </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -416,39 +449,14 @@
       
           <p>Markdown常用格式记录便于查阅</p>
 <h1 id="1、标题"><a href="#1、标题" class="headerlink" title="1、标题"></a>1、标题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">以此类推，注意#与文字间加空格</span><br></pre></td></tr></table></figure>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h1 id="2、文字语法"><a href="#2、文字语法" class="headerlink" title="2、文字语法"></a>2、文字语法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*Italics* or _Italics_ </span><br><span class="line">**Bold** or __Bold__ </span><br><span class="line">***Bold Italics*** or ___Bold Italics___ </span><br><span class="line">~~Delete~~</span><br><span class="line">&lt;u&gt;Underline&lt;/u&gt;</span><br></pre></td></tr></table></figure>
-<p><em>Italics</em> or <em>Italics</em><br><strong>Bold</strong> or <strong>Bold</strong><br><strong><em>Bold Italics</em></strong> or <strong><em>Bold Italics</em></strong><br><del>Delete</del><br><u>Underline</u></p>
-<h1 id="3、列表"><a href="#3、列表" class="headerlink" title="3、列表"></a>3、列表</h1><h2 id="3-1-有序列表"><a href="#3-1-有序列表" class="headerlink" title="3.1 有序列表"></a>3.1 有序列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. Item-1</span><br><span class="line"> 1.1. Item-1-1</span><br><span class="line">    1.1.1. Item-1-1-1</span><br><span class="line">      1.1.1.1. Item-1-1-1-1</span><br><span class="line">  1.2. Item-1-2</span><br><span class="line">2. Item-2</span><br></pre></td></tr></table></figure>
-<ol>
-<li>Item-1<br>1.1. Item-1-1<br> 1.1.1. Item-1-1-1<br>   1.1.1.1. Item-1-1-1-1<br>1.2. Item-1-2</li>
-<li>Item-2</li>
-</ol>
-<h2 id="3-2-无序列表"><a href="#3-2-无序列表" class="headerlink" title="3.2 无序列表"></a>3.2 无序列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- Item-1</span><br><span class="line">  - Item-1-1</span><br><span class="line">    + Item-1-1-1</span><br><span class="line">      * Item-1-1-1-1</span><br><span class="line">  * Item-1-2</span><br><span class="line">+ Item-2</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Item-1<ul>
-<li>Item-1-1<ul>
-<li>Item-1-1-1<ul>
-<li>Item-1-1-1-1</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Item-1-2</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Item-2</li>
-</ul>
-<h1 id="4、链接"><a href="#4、链接" class="headerlink" title="4、链接"></a>4、链接</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">This is [an example](http://example.com/ &quot;XUECCI - Be Professtional&quot;) inline link.</span><br><span class="line">[This link](http://example.net/) has no title attribute.</span><br></pre></td></tr></table></figure>
-<p>This is <a href="https://xuecci.github.io/" title="XUECCI - Be Professtional" target="_blank" rel="noopener">an example</a> inline link.<br><a href="https://xuecci.github.io/" target="_blank" rel="noopener">This link</a> has no title attribute.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ref]: https://xuecci.github.io/ &quot;XUECCI - Be Professtional&quot;</span><br></pre></td></tr></table></figure>
-<h1 id="5、图标"><a href="#5、图标" class="headerlink" title="5、图标"></a>5、图标</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![Hexo Mark](hello-markdown/hexo.png &quot;Hexo Mark&quot;)</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/03/04/hello-markdown/hexo.png" alt="Hexo Mark" title="Hexo Mark"></p>
-<h1 id="6、代码块"><a href="#6、代码块" class="headerlink" title="6、代码块"></a>6、代码块</h1><p>```<br>Code Line 1<br>Code Line 2<br>Code Line 3<br>```<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Code Line 1</span><br><span class="line">Code Line 2</span><br><span class="line">Code Line 3</span><br></pre></td></tr></table></figure></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/03/04/hello-markdown/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -534,9 +542,17 @@
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">标签</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -638,7 +654,7 @@ setInterval("createtime()",250);
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
 
 
