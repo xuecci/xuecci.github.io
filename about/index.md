@@ -1,5 +1,5 @@
 ---
-title: About
+title: 关于
 date: 2018-03-04 02:59:50
 ---
 Email: <xuecci@gmail.com>
