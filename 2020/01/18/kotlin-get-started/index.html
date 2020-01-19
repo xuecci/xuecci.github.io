@@ -360,7 +360,7 @@
     
     
         <div class="reward-container">
-  <div>如果你觉得有用，可以请我喝杯茶</div>
+  <div>如果你觉得有用，可以请我喝杯茶<img src="/images/goutou.png" width="22" height="22" style="display: inline-block;"></div>
   <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     打赏
   </button>
@@ -369,12 +369,12 @@
       <div style="display: inline-block;">
         <img src="/images/Wechat.jpeg" alt="Ryan Mo 微信支付">
         <p>微信支付</p>
-      </div>
+      </div>￼
       
       <div style="display: inline-block;">
         <img src="/images/Alipay.jpeg" alt="Ryan Mo 支付宝">
         <p>支付宝</p>
-      </div>
+      </div>￼
 
   </div>
 </div>
@@ -626,20 +626,7 @@ setInterval("createtime()",250);
   
 
   
-<div id="needsharebutton-float">
-      <span class="btn">
-        <i class="fa fa-share-alt" aria-hidden="true"></i>
-      </span>
-    </div>
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
-  <script>
-      flOptions = {};
-        flOptions.iconStyle = "box";
-        flOptions.boxForm = "vertical";
-        flOptions.position = "middleRight";
-        flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
-      new needShareButton('#needsharebutton-float', flOptions);
-  </script>
+
 
 <script>
 NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
@@ -668,6 +655,19 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
   }, window.Valine);
 });
 </script>
-
+<div id="needsharebutton-float">
+      <span class="btn">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </span>
+    </div>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      flOptions = {};
+        flOptions.iconStyle = "box";
+        flOptions.boxForm = "vertical";
+        flOptions.position = "middleRight";
+        flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      new needShareButton('#needsharebutton-float', flOptions);
+  </script>
 </body>
 </html>
