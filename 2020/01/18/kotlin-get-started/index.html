@@ -40,8 +40,8 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
 </script>
@@ -51,7 +51,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kotlin Get Started">
 <meta property="og:url" content="http://yoursite.com/2020/01/18/kotlin-get-started/index.html">
-<meta property="og:site_name" content="Xuecci`s blogs">
+<meta property="og:site_name" content="XUECCI">
 <meta property="og:description" content="Kotlin学习笔记 变量变量的声明与赋值我们回忆下 Java 里声明一个 View 类型的变量的写法：1View v; kotlin 里声明一个变量的格式是这样的：1var v: View 这里有几处不同：  有一个 var 关键字 类型和变量名位置互换了 中间是用冒号分隔的 结尾没有分号（对，Kotlin 里面不需要分号）">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-01-19T11:26:28.000Z">
@@ -71,7 +71,7 @@
   };
 </script>
 
-  <title>Kotlin Get Started | Xuecci`s blogs</title>
+  <title>Kotlin Get Started | XUECCI</title>
   
 
 
@@ -115,7 +115,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Xuecci`s blogs</span>
+        <span class="site-title">XUECCI</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -160,9 +160,34 @@
     <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -189,13 +214,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/18/kotlin-get-started/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="Ryan Mo">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xuecci`s blogs">
+      <meta itemprop="name" content="XUECCI">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -406,6 +431,8 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ryan Mo"
+      src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">Ryan Mo</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -526,6 +553,8 @@ setInterval("createtime()",250);
   </div>
 
   
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
@@ -539,6 +568,8 @@ setInterval("createtime()",250);
 
 
 
+
+  <script src="/js/local-search.js"></script>
 
 
 
