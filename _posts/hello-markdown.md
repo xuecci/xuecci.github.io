@@ -1,7 +1,10 @@
 ---
 title: Hello Markdown
+date: 2018-03-04 01:13:47
+tags: Markdown
+categories: 技术
 ---
-平时用Markdown写作不多，特作Markdown常用格式记录便于查阅
+Markdown常用格式记录便于查阅
 
 # 1、标题
 ```
@@ -9,6 +12,7 @@ title: Hello Markdown
 ## 二级标题
 以此类推，注意#与文字间加空格
 ```
+<!--more-->
 # 一级标题
 ## 二级标题
 
