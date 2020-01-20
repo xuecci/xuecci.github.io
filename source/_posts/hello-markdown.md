@@ -6,7 +6,7 @@ categories: 技术
 ---
 Markdown常用格式记录便于查阅
 
-# 1、标题
+# 标题
 ```
 # 一级标题
 ## 二级标题
@@ -16,7 +16,7 @@ Markdown常用格式记录便于查阅
 # 一级标题
 ## 二级标题
 
-# 2、文字语法
+# 文字语法
 ```
 *Italics* or _Italics_ 
 **Bold** or __Bold__ 
@@ -30,8 +30,8 @@ Markdown常用格式记录便于查阅
 ~~Delete~~
 <u>Underline</u>
 
-# 3、列表
-## 3.1 有序列表
+# 列表
+## 有序列表
 ```
 1. Item-1
  1.1. Item-1-1
@@ -47,7 +47,7 @@ Markdown常用格式记录便于查阅
   1.2. Item-1-2
 2. Item-2
 
-## 3.2 无序列表
+## 无序列表
 ```
 - Item-1
   - Item-1-1
@@ -63,7 +63,7 @@ Markdown常用格式记录便于查阅
   * Item-1-2
 + Item-2
 
-# 4、链接
+# 链接
 ```
 This is [an example](http://example.com/ "XUECCI - Be Professtional") inline link.
 [This link](http://example.net/) has no title attribute.
@@ -76,13 +76,13 @@ This is [an example](https://xuecci.github.io/ "XUECCI - Be Professtional") inli
 ```
 [ref]: https://xuecci.github.io/ "XUECCI - Be Professtionale"
 
-# 5、图标
+# 图标
 ```
 ![Hexo Mark](hello-markdown/hexo.png "Hexo Mark")
 ```
 ![Hexo Mark](hello-markdown/hexo.png "Hexo Mark")
 
-# 6、代码块
+# 代码块
 \`\`\`
 Code Line 1
 Code Line 2

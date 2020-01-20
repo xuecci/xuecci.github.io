@@ -1,11 +1,17 @@
-## 一、SystemUI plugins机制介绍
+---
+title: Sysui plugin
+date: 2020-01-20 22:51:37
+tags: SystemUI
+categories: 技术
+---
+# SystemUI plugins机制介绍
 插件是包含可以动态加载到SystemUI中的代码和资源的APK，插件提供了一种快速创建SystemUI功能的简便方法，通过创建插件来实现SysUI中已经定义的基本接口集，从而在运行时更改SystemUI的行为，由接口控制的代码可以更快的迭代。
-
-## 二、基本架构
+<!--more-->
+# 基本架构
 下图显示了插件编译/加载流程的工作原理
-![Sysui plugins 解析(以SampleOverlayPlugin为例)](uploads/affc4d5bcc13947ed5d94d85c43b2c66/sysui-plugins.png)
+![Sysui plugins 解析(以SampleOverlayPlugin为例)](sysui-plugin/sysui-plugins.png)
 
-## 三、代码结构
+# 代码结构
 vendor\tran_os\packages\apps\SystemUI\plugin\ExamplePlugin\src\com\android\systemui\plugin\testoverlayplugin\ 插件目录，生成插件apk，sysui接口实现
 
 vendor\tran_os\packages\apps\SystemUI\plugin\src\com\android\systemui\plugins\  功能接口定义
@@ -14,8 +20,9 @@ vendor\tran_os\packages\apps\SystemUI\plugin_core\  基础接口定义
 
 vendor\tran_os\packages\apps\SystemUI\shared\src\com\android\systemui\shared\plugins\   plugin运行模块，主要负责插件加载，管理等
 
-## 四、SampleOverlayPlugin加载流程解析
-### 1、触发加载插件 (vendor\tran_os\packages\apps\SystemUI\src\com\android\systemui\SystemUIApplication.java)
+# SampleOverlayPlugin加载流程解析
+## 触发加载插件
+vendor\tran_os\packages\apps\SystemUI\src\com\android\systemui\SystemUIApplication.java
 ```
 Dependency.get(PluginManager.class).addPluginListener(
                 new PluginListener<OverlayPlugin>() {
@@ -81,7 +88,7 @@ Class cls, boolean allowMultiple)方法
 
 通过PluginManagerImpl将寻找OverlayPlugin的实现，绑定后同过OverlayPlugin定义好的接口去调用SampleOverlayPlugin的实现功能，下面我们一步步看如何寻找到接口OverlayPlugin的实现
 
-### 2. addPluginListener
+## addPluginListener
 
 vendor\tran_os\packages\apps\SystemUI\shared\src\com\android\systemui\shared\plugins\PluginManagerImpl.java
 ```
@@ -312,5 +319,6 @@ public interface OverlayPlugin extends Plugin {
 ```
 至此通过classLoader加载plugin类赋值到PluginInfo,然后发送PLUGIN_CONNECTED消息，调用到mListener.onPluginConnected，回到第一步addPluginListener-》PluginListener，调用plugin.setup，此plugin已经是SampleOverlayPlugin apk中的实现，从而完成布局加载
 
-## 五、类图结构
-![Sysui plugins 解析(以SampleOverlayPlugin为例)](uploads/affc4d5bcc13947ed5d94d85c43b2c66/class-structure.png)
+# 类图结构
+![Sysui plugins 解析(以SampleOverlayPlugin为例)](sysui-plugin/class-structure.png)
+
