@@ -54,7 +54,7 @@
 <meta property="og:site_name" content="XUECCI">
 <meta property="og:description" content="关键字Constructor12345678910111213141516171819202122232425262728293031323334353637//主构造器 primary constructor//constructor 构造器移到了类名之后,类的属性 name 可以引用构造器中的参数nameclass User constructor(name: String) &amp;#123;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-26T12:10:52.275Z">
+<meta property="og:updated_time" content="2020-01-27T05:16:47.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kotlin Chapter Three">
 <meta name="twitter:description" content="关键字Constructor12345678910111213141516171819202122232425262728293031323334353637//主构造器 primary constructor//constructor 构造器移到了类名之后,类的属性 name 可以引用构造器中的参数nameclass User constructor(name: String) &amp;#123;">
@@ -246,10 +246,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-01-26 17:14:39 / 修改时间：20:10:52" itemprop="dateCreated datePublished" datetime="2020-01-26T17:14:39+08:00">2020-01-26</time>
+              <time title="创建时间：2020-01-26 17:14:39" itemprop="dateCreated datePublished" datetime="2020-01-26T17:14:39+08:00">2020-01-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-27 13:16:47" itemprop="dateModified" datetime="2020-01-27T13:16:47+08:00">2020-01-27</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -316,7 +322,7 @@
 </ul>
 <h2 id="init"><a href="#init" class="headerlink" title="init"></a>init</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class User &#123;</span><br><span class="line">    init &#123;</span><br><span class="line">        // 初始化代码块，先于构造器执行</span><br><span class="line">    &#125;</span><br><span class="line">    constructor() &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="val"><a href="#val" class="headerlink" title="val"></a>val</h2><p>类似Java中的final,定义只读变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">val fina1 = 1</span><br><span class="line">    // 参数是没有 val 的，默认为常量</span><br><span class="line">fun method(final2: String) &#123;</span><br><span class="line">    val final3 = &quot;The parameter is &quot; + final2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="val自定义-getter"><a href="#val自定义-getter" class="headerlink" title="val自定义 getter"></a>val自定义 getter</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">val size: Int</span><br><span class="line">    get() &#123; // 👈 每次获取 size 值时都会执行 items.size</span><br><span class="line">        return items.size</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="val自定义-getter"><a href="#val自定义-getter" class="headerlink" title="val自定义 getter"></a>val自定义 getter</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">val size: Int</span><br><span class="line">    get() &#123; // 每次获取 size 值时都会执行 items.size</span><br><span class="line">        return items.size</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="object"><a href="#object" class="headerlink" title="object"></a>object</h2><p>创建一个类，并且创建一个这个类的对象,即为单例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">object Sample &#123;</span><br><span class="line">    val name = &quot;A name&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>在代码中如果要使用这个对象，直接通过它的类名就可以访问：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sample.name</span><br></pre></td></tr></table></figure></p>
 <p>这种通过 object 实现的单例是一个饿汉式的单例，并且实现了线程安全。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//使用object创建匿名内部类</span><br><span class="line">val listener = object: ViewPager.SimpleOnPageChangeListener() &#123;</span><br><span class="line">    override fun onPageSelected(position: Int) &#123;</span><br><span class="line">        // override</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
