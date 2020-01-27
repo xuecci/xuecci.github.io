@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Kotlin Chapter Five</title>
+    <title>Kotlin Professional Get Started</title>
+    <url>/2020/01/27/kotlin-Professional-get-started/</url>
+    <content><![CDATA[<p>记录Kotlin高级部分</p>
+<h1 id="findViewById扩展"><a href="#findViewById扩展" class="headerlink" title="findViewById扩展"></a>findViewById扩展</h1><p>Kotlin可以使用java一样的findViewById，但扩展了更方便的形式如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//导入指定布局文件中所有控件属性</span><br><span class="line">import kotlinx.android.synthetic.main.activity_main.*</span><br><span class="line"></span><br><span class="line">class MainActivity : AppCompatActivity() &#123;</span><br><span class="line"></span><br><span class="line">    override fun onCreate(savedInstanceState: Bundle?) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_main)</span><br><span class="line">        //直接使用控件id访问控件属性</span><br><span class="line">        textview.text = &quot;ABC&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="泛型out-和-in"><a href="#泛型out-和-in" class="headerlink" title="泛型out 和 in"></a>泛型out 和 in</h1><p>out 相当于java里面的 &lt;? extend&gt;，表示该参数只用来输出，不用来输入，你只能读我不能写我<br>in 相当于java里面的 &lt;? super&gt;，表示该参数只用来输入，不用来输出，你只能写我不能读我<br>举个栗子：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Producer&lt;T&gt; &#123;</span><br><span class="line">    fun produce(): T &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">​</span><br><span class="line">val producer: Producer&lt;out TextView&gt; = Producer&lt;Button&gt;()</span><br><span class="line">val textView: TextView = producer.produce() // 相当于 &apos;List&apos; 的 `get`</span><br><span class="line"></span><br><span class="line">class Consumer&lt;T&gt; &#123;</span><br><span class="line">    fun consume(t: T) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">​</span><br><span class="line">val consumer: Consumer&lt;in Button&gt; = Consumer&lt;TextView&gt;()</span><br><span class="line">consumer.consume(Button(context)) // 相当于 &apos;List&apos; 的 &apos;add&apos;</span><br></pre></td></tr></table></figure></p>
+<h1 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h1><p>Kotlin的协程即上层多线程API,大大方便开发者使用多线程，实现自动创建多线程、切换线程<br>使用方法：</p>
+<ul>
+<li><p>项目根目录下的 build.gradle :</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    ...</span><br><span class="line">    ext.kotlin_coroutines = &apos;1.3.6&apos;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Module 下的 build.gradle :</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    ...</span><br><span class="line">    //依赖协程核心库</span><br><span class="line">    implementation &quot;org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines&quot;</span><br><span class="line">    //依赖当前平台所对应的平台库</span><br><span class="line">    implementation &quot;org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines&quot;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>代码部分：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">coroutineScope.launch(Dispatchers.Main) &#123;//在 UI 线程开始</span><br><span class="line">    val image =getImage(imageId)  // 使用suspend关键字声明挂起函数，自动运行在IO线程</span><br><span class="line">    avatarIv.setImageBitmap(image) //回到 UI 线程更新 UI</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">suspend fun getImage(imageId: Int) = withContext(Dispatchers.IO) &#123; //挂起函数声明运行在IO线程</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Kotlin</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kotlin Basic Chapter Five</title>
     <url>/2020/01/26/kotlin-chapter-five/</url>
     <content><![CDATA[<p>Kotlin学习笔记</p>
 <h1 id="函数简化"><a href="#函数简化" class="headerlink" title="函数简化"></a>函数简化</h1><h2 id="使用-连接返回值"><a href="#使用-连接返回值" class="headerlink" title="使用 = 连接返回值"></a>使用 = 连接返回值</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fun area(width: Int, height: Int): Int = width * height</span><br><span class="line">fun sayHi(name: String) = println(&quot;Hi &quot; + name)</span><br></pre></td></tr></table></figure>
@@ -29,7 +53,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Kotlin Chapter Four</title>
+    <title>Kotlin Basic Chapter Four</title>
     <url>/2020/01/26/kotlin-chapter-four/</url>
     <content><![CDATA[<p>Kotlin学习笔记</p>
 <h1 id="数组和集合"><a href="#数组和集合" class="headerlink" title="数组和集合"></a>数组和集合</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">val strs: Array&lt;String&gt; = arrayOf(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</span><br><span class="line">val intArray = intArrayOf(1, 2, 3)</span><br></pre></td></tr></table></figure>
@@ -82,7 +106,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Kotlin Chapter Three</title>
+    <title>Kotlin Basic Chapter Three</title>
     <url>/2020/01/26/kotlin-chapter-three/</url>
     <content><![CDATA[<p>Kotlin学习笔记</p>
 <h1 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h1><h2 id="Constructor"><a href="#Constructor" class="headerlink" title="Constructor"></a>Constructor</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//主构造器 primary constructor</span><br><span class="line">//constructor 构造器移到了类名之后,类的属性 name 可以引用构造器中的参数name</span><br><span class="line">class User constructor(name: String) &#123;</span><br><span class="line">    var name: String = name</span><br><span class="line"></span><br><span class="line">    init &#123;</span><br><span class="line">        this.name = name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//次构造器</span><br><span class="line">class User &#123;</span><br><span class="line">    val name: String</span><br><span class="line">    constructor(name: String) &#123;</span><br><span class="line">        //没有 public</span><br><span class="line">        this.name = name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//如果类中有主构造器，那么其他的次构造器都需要通过 this 关键字调用主构造器</span><br><span class="line">class User constructor(var name: String) &#123; </span><br><span class="line">    constructor(name: String, id: Int) : this(name) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    constructor(name: String, id: Int, age: Int) : this(name, id) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//通常情况下，主构造器中的 constructor 关键字可以省略：</span><br><span class="line">class User(name: String) &#123;</span><br><span class="line">    var name: String = name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//在构造器中直接声明属性</span><br><span class="line">class User(var name: String) &#123;</span><br><span class="line">&#125;</span><br><span class="line">// 等价于：</span><br><span class="line">class User(name: String) &#123;</span><br><span class="line">  var name: String = name</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -136,7 +160,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Kotlin Chapter Two</title>
+    <title>Kotlin Basic Chapter Two</title>
     <url>/2020/01/19/kotlin-chapter-two/</url>
     <content><![CDATA[<p>Kotlin学习笔记</p>
 <h1 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class MainActivity : AppCompatActivity() &#123;</span><br><span class="line">    override fun onCreate(savedInstanceState: Bundle?) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -180,7 +204,7 @@ Kotlin 里我们注意到 AppCompatActivity 后面的 ()，这其实也是一种
       </tags>
   </entry>
   <entry>
-    <title>Kotlin Get Started</title>
+    <title>Kotlin Basic Get Started</title>
     <url>/2020/01/18/kotlin-get-started/</url>
     <content><![CDATA[<p>Kotlin学习笔记</p>
 <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="变量的声明与赋值"><a href="#变量的声明与赋值" class="headerlink" title="变量的声明与赋值"></a>变量的声明与赋值</h2><p>kotlin 里声明一个变量的格式是这样的：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var v: View</span><br></pre></td></tr></table></figure></p>
